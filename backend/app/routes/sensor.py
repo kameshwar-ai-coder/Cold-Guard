@@ -42,3 +42,10 @@ def receive_sensor_data(
         "temperature": reading.temperature,
         "humidity": reading.humidity
     }
+@router.get("/sensor-data")
+def get_sensor_data(db: Session = Depends(get_db)):
+    readings = db.query(SensorReading).order_by(
+        SensorReading.recorded_at.desc()
+    ).limit(50).all()
+
+    return readings

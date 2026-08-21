@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7f2">
+  <title>ColdGuard | Cold-chain intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="login-screen" id="login-screen">
+    <div class="login-panel">
+      <div class="brand login-brand"><span class="brand-mark">+</span><span>coldguard</span></div>
+      <div class="eyebrow">Cold-chain intelligence</div>
+      <h1>Sign in to your workspace</h1>
+      <p class="subtle">Choose your role to continue monitoring live sensor data.</p>
+      <form id="login-form">
+        <label for="user-name">Your name</label>
+        <input id="user-name" name="user-name" type="text" autocomplete="name" placeholder="Enter your name" required>
+        <fieldset>
+          <legend>Continue as</legend>
+          <div class="login-roles">
+            <label class="login-role"><input type="radio" name="role" value="transport" checked><span><strong>Transport team</strong><small>Monitor shipments in transit</small></span></label>
+            <label class="login-role"><input type="radio" name="role" value="pharmacy"><span><strong>Pharmacy</strong><small>Review and accept deliveries</small></span></label>
+          </div>
+        </fieldset>
+        <button class="button login-submit" type="submit">Enter workspace <span>→</span></button>
+      </form>
+    </div>
+  </section>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">+</span><span>coldguard</span></div>
+      <div class="workspace-label">Workspace</div>
+      <div class="workspace-role" id="workspace-role">Workspace</div>
+      <nav id="primary-nav" aria-label="Primary navigation"></nav>
+      <div class="sidebar-foot">
+        <div class="connection-dot"><span></span><span id="connection-label">Connecting to API</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button>
+        <div><p class="eyebrow" id="page-kicker">Transport operations</p><h1 id="page-title">Control tower</h1></div>
+        <div class="topbar-actions"><button class="sound-toggle" data-action="sound" aria-pressed="false">🔇 Sound off</button><span class="live-pill"><span></span> Live monitoring</span><button class="icon-button" aria-label="Notifications">♧</button><div class="top-profile"><button class="profile-trigger" data-action="profile" aria-label="Open profile menu"><span class="profile-name" id="top-profile-name">User</span><span class="avatar avatar-large" id="top-avatar">--</span></button><div class="profile-menu" id="profile-menu"><div class="profile-menu-name" id="profile-menu-name">User</div><button data-action="logout">Log out</button></div></div></div>
+      </header>
+      <div id="toast" class="toast" role="status"></div>
+      <section id="page-content" class="page-content"></section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
