@@ -5,7 +5,14 @@ from sqlalchemy import text
 from app.database import engine, Base
 from app.models.device import Device
 from app.models.sensor_reading import SensorReading
+from app.models.shipment import Shipment
+from app.models.sensor_reading_context import SensorReadingContext
+from app.models.weather_observation import WeatherObservation
+from app.models.user import User, UserSession
+from app.routes.auth import router as auth_router
+from app.routes.shipments import router as shipments_router
 from app.routes.sensor import router as sensor_router
+from app.routes.ml import router as ml_router
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -23,6 +30,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(sensor_router)
+app.include_router(auth_router)
+app.include_router(shipments_router)
+app.include_router(ml_router)
 
 
 @app.get("/")
